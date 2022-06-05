@@ -1,1 +1,1 @@
-web: gunicorn snack1102.wsgi
+web: gunicorn snack.wsgi
