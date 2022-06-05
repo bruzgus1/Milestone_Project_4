@@ -1,1 +1,1 @@
-web: gunicorn snack.wsgi
+web: gunicorn snack.wsgi:application
