@@ -12,7 +12,3 @@ class ReservationList(generic.ListView):
 
 def get_home_page(request):
     return render(request, 'index.html')
-
-
-def get_resersation_page(request):
-    return render(request, 'make_a_reservation.html')
