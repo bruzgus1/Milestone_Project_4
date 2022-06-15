@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        {% if user.is_authenticated %}
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-preview">
+                <h2 class="post-title">
+                    Your Reservations
+                </h2>
+                <div class="container">
+                    <div class="row">
+                        {% for i in reservations %}
+                        <div class="col">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Reservation on the {{ i.date }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ i.first_name }} {{ i.last_name }}</h6>
+                                    <p class="card-text">Number of Guests: {{ i.number_of_guests }}</p>
+                                    <a href="#" class="card-link">Edit</a>
+                                    <a href="#" class="card-link">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-preview">
+                <h2 class="post-title">
+                    Please Login Or Register for An Account
+                </h2>
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+{%endblock%}
