@@ -16,4 +16,12 @@ def get_home_page(request):
 
 
 def make_reservation(request):
+    if request.method == 'POST':
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        number_of_guests = request.POST.get('number_of_guests')
+        date = request.POST.get('date')
+        Reservation.objects.create(first_name=first_name, last_name=last_name, number_of_guests=number_of_guests, date=date)
+
+        return redirect('reservations')
     return render(request, 'make_a_reservation.html')
