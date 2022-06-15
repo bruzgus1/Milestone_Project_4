@@ -9,6 +9,12 @@
                 <h2 class="post-title">
                     Your Reservations
                 </h2>
+                {% for i in reservations %}
+                <p>
+                    {{ i.first_name }}, {{ i.last_name }}
+
+                </p>
+                {% endfor %}
             </div>
         </div>
         {% else %}

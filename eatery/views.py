@@ -4,9 +4,10 @@ from django.views.generic import TemplateView
 from .models import Reservation
 
 
-class ReservationList(generic.ListView):
+class reservation_list(generic.ListView):
     model = Reservation
     queryset = Reservation.objects.all()
+    context_object_name = 'reservations'
     template_name = 'make_a_reservation.html'
 
 
