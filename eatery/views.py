@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import generic
 from django.views.generic import TemplateView
 from .models import Reservation
+from .forms import ReservationForm
 
 
 class reservation_list(generic.ListView):
@@ -17,11 +18,16 @@ def get_home_page(request):
 
 def make_reservation(request):
     if request.method == 'POST':
-        first_name = request.POST.get('first_name')
-        last_name = request.POST.get('last_name')
-        number_of_guests = request.POST.get('number_of_guests')
-        date = request.POST.get('date')
-        Reservation.objects.create(first_name=first_name, last_name=last_name, number_of_guests=number_of_guests, date=date)
+        form = ReservationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('reservations')
+    form = ReservationForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'make_a_reservation.html', context)
 
-        return redirect('reservations')
-    return render(request, 'make_a_reservation.html')
+
+def edit_reservation(request, i_id):
+    return render(request, 'edit_reservation.html')
