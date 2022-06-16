@@ -18,5 +18,5 @@ class ReservationForm(forms.ModelForm):
                 'type': 'number',
                 'placeholder': '7'}),
             'date': DateTimeInput(attrs={
-                'type': 'datetime-local',})
+                'type': 'datetime-local'})
         }

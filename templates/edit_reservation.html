@@ -7,35 +7,23 @@
         <div class="col-lg-8 col-md-10 mx-auto">
             <div class="post-preview">
                 <h2 class="post-title">
-                    Edit Your Reservation
+                    Edit A Reservation
                 </h2>
                 <div class="container">
                     <div class="row">
                         <form method="POST">
                             {% csrf_token %}
                             <div>
-                                <p>
-                                    <label for="id_first_name">First Name:</label>
-                                    <input type="text" name="first_name" id="id_first_name" required>
-                                </p>
+                                {{ form.first_name }}
                             </div>
                             <div>
-                                <p>
-                                    <label for="id_last_name">Last Name:</label>
-                                    <input type="text" name="last_name" id="id_last_name" required>
-                                </p>
+                                {{ form.last_name }}
                             </div>
                             <div>
-                                <p>
-                                    <label for="id_number_of_guests">Number Of Guests:</label>
-                                    <input type="number" name="number_of_guests" id="id_number_of_guests" required>
-                                </p>
+                                {{ form.number_of_guests }}
                             </div>
                             <div>
-                                <p>
-                                    <label for="id_date">Date:</label>
-                                    <input type="datetime-local" name="date" id="id_date" required>
-                                </p>
+                                {{ form.date }}
                             </div>
                             <div>
                                 <p>

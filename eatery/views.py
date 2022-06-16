@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from django.views.generic import TemplateView
 from .models import Reservation
@@ -30,4 +30,14 @@ def make_reservation(request):
 
 
 def edit_reservation(request, i_id):
-    return render(request, 'edit_reservation.html')
+    reservation = get_object_or_404(Reservation, id=i_id)
+    if request.method == 'POST':
+        form = ReservationForm(request.POST, instance=reservation)
+        if form.is_valid():
+            form.save()
+            return redirect('reservations')
+    form = ReservationForm(instance=reservation)
+    context = {
+        'form': form
+    }
+    return render(request, 'edit_reservation.html', context)
