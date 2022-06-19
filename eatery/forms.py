@@ -1,12 +1,12 @@
 from django import forms
-from django.forms import ModelForm, TextInput, NumberInput, DateTimeInput
+from django.forms import ModelForm, TextInput, NumberInput, DateTimeInput, TimeInput
 from .models import Reservation
 
 
 class ReservationForm(forms.ModelForm):
     class Meta:
         model = Reservation
-        fields = ['first_name', 'last_name', 'number_of_guests', 'date']
+        fields = ['first_name', 'last_name', 'number_of_guests', 'date', 'time']
         widgets = {
             'first_name': TextInput(attrs={
                 'type': 'text',
@@ -18,5 +18,7 @@ class ReservationForm(forms.ModelForm):
                 'type': 'number',
                 'placeholder': 'Number Of Guests'}),
             'date': DateTimeInput(attrs={
-                'type': 'datetime-local'})
+                'type': 'date'}),
+            'time': TimeInput(attrs={
+                'type': 'time'})
         }
