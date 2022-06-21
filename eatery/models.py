@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 class Reservation(models.Model):
 
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     first_name = models.CharField(max_length=200, null=False, blank=False)
     last_name = models.CharField(max_length=200, null=False, blank=False)
     date = models.DateField(null=False, blank=False, unique=True)

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from django.views.generic import TemplateView
+from django.contrib.auth.decorators import login_required
 from .models import Reservation
 from .forms import ReservationForm
 
@@ -19,6 +20,7 @@ def get_home_page(request):
 def make_reservation(request):
     if request.method == 'POST':
         form = ReservationForm(request.POST)
+        form.instance.created_by = request.user
         if form.is_valid():
             form.save()
             return redirect('reservations')
@@ -47,3 +49,4 @@ def delete_reservation(request, i_id):
     reservation = get_object_or_404(Reservation, id=i_id)
     reservation.delete()
     return redirect('reservations')
+
