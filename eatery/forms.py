@@ -16,7 +16,7 @@ class ReservationForm(forms.ModelForm):
                 'placeholder': 'Last Name'}),
             'number_of_guests': NumberInput(attrs={
                 'type': 'number',
-                'placeholder': 'Number Of Guests'}),
+                'placeholder': 'Guests (min: 1, max: 10)',}),
             'date': DateTimeInput(attrs={
                 'type': 'date'}),
             'time': TimeInput(attrs={
