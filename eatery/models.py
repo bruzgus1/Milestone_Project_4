@@ -9,7 +9,7 @@ class Reservation(models.Model):
     first_name = models.CharField(max_length=200, null=False, blank=False)
     last_name = models.CharField(max_length=200, null=False, blank=False)
     date = models.DateField(null=False, blank=False, unique=True)
-    number_of_guests = models.IntegerField(null=False, blank=False)
+    number_of_guests = models.IntegerField(null=False, blank=False,)
     time = models.TimeField(null=False, blank=False, default=datetime.time(19, 00))
     
 

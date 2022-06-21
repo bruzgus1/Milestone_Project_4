@@ -26,7 +26,8 @@ def make_reservation(request):
             return redirect('reservations')
     form = ReservationForm()
     context = {
-        'form': form
+        'form': form,
+        'reservations': Reservation.objects.all()
     }
     return render(request, 'make_a_reservation.html', context)
 
@@ -40,7 +41,8 @@ def edit_reservation(request, i_id):
             return redirect('reservations')
     form = ReservationForm(instance=reservation)
     context = {
-        'form': form
+        'form': form,
+        'reservations': Reservation.objects.all()
     }
     return render(request, 'edit_reservation.html', context)
 
