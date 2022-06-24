@@ -85,6 +85,18 @@
         </div>
     </header>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                    {{ message | safe }}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
     <main class="flex-shrink-0 main-bg">
         {% block content %}
         <!-- Content Goes here -->
@@ -108,6 +120,16 @@
 
     <!-- Custom scripts for this template -->
     <script src="{% static 'js/clean-blog.min.js' %}"></script>
+
+
+    <!-- Script to close the messages after a given time -->
+    <script>
+        setTimeout(function () {
+            let messages = document.getElementById('msg');
+            let alert = new bootstrap.Alert(messages);
+            alert.close();
+        }, 1500);
+    </script>
 </body>
 
 </html>
