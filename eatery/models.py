@@ -15,7 +15,6 @@ class Reservation(models.Model):
             MinValueValidator(1)
         ])
     time = models.TimeField(null=False, blank=False, default=datetime.time(19, 00))
-    
 
     def __str__(self):
         return self.first_name

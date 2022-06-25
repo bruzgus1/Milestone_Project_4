@@ -30,19 +30,16 @@
                         <form method="POST" action="make_reservation">
                             {% csrf_token %}
                             <div>
-                                {{ form.first_name }}
+                                Time: {{ form.time }}
                             </div>
                             <div>
-                                {{ form.last_name }}
+                                Date: {{ form.date }}
                             </div>
                             <div>
-                                {{ form.number_of_guests }}
+                                Guests: {{ form.number_of_guests }}
                             </div>
                             <div>
-                                {{ form.date }}
-                            </div>
-                            <div>
-                                {{ form.time }}
+                                Reservation Under: {{ form.first_name }}
                             </div>
                             <div>
                                 <p>

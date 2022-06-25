@@ -4,6 +4,7 @@ from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
 from .models import Reservation
 from .forms import ReservationForm
+from django.contrib.auth import get_user
 
 
 class reservation_list(generic.ListView):
@@ -24,7 +25,12 @@ def make_reservation(request):
         if form.is_valid():
             form.save()
             return redirect('reservations')
-    form = ReservationForm()
+    else:
+        # Get the currently logged-in User.
+        user = get_user(request)
+        # Provide User as initial data to the form
+        form = ReservationForm(initial={'first_name': user})
+    #form = ReservationForm()
     context = {
         'form': form,
         'reservations': Reservation.objects.all()
