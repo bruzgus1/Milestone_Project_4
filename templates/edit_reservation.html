@@ -15,7 +15,7 @@
                         <div class="col">
                             <div class="card" style="width: 18rem;">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ i.date }}</h5>
+                                    <h5 class="card-title">{{ i.date_of_reservation }}</h5>
                                 </div>
                             </div>
                         </div>
@@ -30,19 +30,16 @@
                         <form method="POST">
                             {% csrf_token %}
                             <div>
-                                {{ form.first_name }}
+                                Time: {{ form.time }}
                             </div>
                             <div>
-                                {{ form.last_name }}
+                                Date: {{ form.date_of_reservation }}
                             </div>
                             <div>
-                                {{ form.number_of_guests }}
+                                Guests: {{ form.number_of_guests }}
                             </div>
                             <div>
-                                {{ form.date }}
-                            </div>
-                            <div>
-                                {{ form.time }}
+                                Reservation Under: {{ form.reservation_under }}
                             </div>
                             <div>
                                 <p>

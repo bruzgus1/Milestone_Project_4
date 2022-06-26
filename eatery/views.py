@@ -29,7 +29,7 @@ def make_reservation(request):
         # Get the currently logged-in User.
         user = get_user(request)
         # Provide User as initial data to the form
-        form = ReservationForm(initial={'first_name': user})
+        form = ReservationForm(initial={'reservation_under': user})
     #form = ReservationForm()
     context = {
         'form': form,

@@ -16,8 +16,8 @@
                         <div class="col">
                             <div class="card" style="width: 18rem;">
                                 <div class="card-body">
-                                    <h5 class="card-title">Reservation on {{ i.date }}, {{ i.time }}</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">{{ i.first_name }} {{ i.last_name }}</h6>
+                                    <h5 class="card-title">Reservation on {{ i.date_of_reservation }}, {{ i.time }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ i.reservation_under }}</h6>
                                     <p class="card-text">Number of Guests: {{ i.number_of_guests }}</p>
                                     <a href="/edit_reservation/{{ i.id }}" class="card-link">Edit</a>
                                     <a href="/delete_reservation/{{ i.id }}" class="card-link">Delete</a>
