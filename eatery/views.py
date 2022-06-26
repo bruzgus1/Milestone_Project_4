@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from django.views.generic import TemplateView
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth import get_user
+from django.contrib import messages
 from .models import Reservation
 from .forms import ReservationForm
-from django.contrib.auth import get_user
 
 
 class reservation_list(generic.ListView):
@@ -24,13 +24,15 @@ def make_reservation(request):
         form.instance.created_by = request.user
         if form.is_valid():
             form.save()
+            messages.success(request, "Your Reservation Was Submitted Successfully")
             return redirect('reservations')
+        else:
+            messages.error(request, "Your Reservation Was Not Submitted, Double Check All The Fields And Try Again")
     else:
         # Get the currently logged-in User.
         user = get_user(request)
         # Provide User as initial data to the form
         form = ReservationForm(initial={'reservation_under': user})
-    #form = ReservationForm()
     context = {
         'form': form,
         'reservations': Reservation.objects.all()
@@ -44,7 +46,10 @@ def edit_reservation(request, i_id):
         form = ReservationForm(request.POST, instance=reservation)
         if form.is_valid():
             form.save()
+            messages.success(request, "Your Reservation Was Updated Successfully")
             return redirect('reservations')
+        else:
+            messages.error(request, "Your Reservation Was Not Updated, Double Check All The Fields And Try Again")
     form = ReservationForm(instance=reservation)
     context = {
         'form': form,
@@ -56,5 +61,5 @@ def edit_reservation(request, i_id):
 def delete_reservation(request, i_id):
     reservation = get_object_or_404(Reservation, id=i_id)
     reservation.delete()
+    messages.success(request, "Your Reservation Was Deleted Successfully")
     return redirect('reservations')
-
