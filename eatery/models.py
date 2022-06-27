@@ -1,6 +1,8 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.contrib.auth.models import User
+import datetime
+from datetime import timedelta
 
 
 class Reservation(models.Model):
@@ -14,7 +16,8 @@ class Reservation(models.Model):
     )
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     reservation_under = models.CharField(max_length=200, null=False, blank=False)
-    date_of_reservation = models.DateField(null=False, blank=False, unique=True)
+    date_of_reservation = models.DateField(null=False, blank=False, unique=True, validators=
+    [MinValueValidator(datetime.date.today() + timedelta(days=1))])
     number_of_guests = models.IntegerField(null=False, blank=False, validators=[
             MaxValueValidator(10),
             MinValueValidator(1)
