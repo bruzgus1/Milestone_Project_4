@@ -17,7 +17,6 @@
                 </h2>
                 <div class="container">
                     <div class="row">
-                        {% if reservations %}
                         {% for i in reservations %}
                         {% if user == i.created_by %}
                         <div class="col">
@@ -34,7 +33,6 @@
                         </div>
                         {% endif %}
                         {% endfor %}
-                        {% endif %}
                     </div>
                 </div>
             </div>
