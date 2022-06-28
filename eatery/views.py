@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
-from django.views.generic import TemplateView
 from django.contrib.auth import get_user
 from django.contrib import messages
 from .models import Reservation
@@ -24,10 +23,12 @@ def make_reservation(request):
         form.instance.created_by = request.user
         if form.is_valid():
             form.save()
-            messages.success(request, "Your Reservation Was Submitted Successfully")
+            messages.success(request, "Your Reservation Was Submitted")
             return redirect('reservations')
         else:
-            messages.error(request, "Your Reservation Was Not Submitted, Double Check All The Fields And Try Again")
+            messages.error(request, "Your Reservation Was Not Submitted,",
+                                    "Double Check All The Fields And Try Again"
+                           )
     else:
         # Get the currently logged-in User.
         user = get_user(request)
@@ -46,10 +47,12 @@ def edit_reservation(request, i_id):
         form = ReservationForm(request.POST, instance=reservation)
         if form.is_valid():
             form.save()
-            messages.success(request, "Your Reservation Was Updated Successfully")
+            messages.success(request, "Your Reservation Was Updated")
             return redirect('reservations')
         else:
-            messages.error(request, "Your Reservation Was Not Updated, Double Check All The Fields And Try Again")
+            messages.error(request, "Your Reservation Was Not Updated,",
+                                    "Double Check All The Fields And Try Again"
+                           )
     form = ReservationForm(instance=reservation)
     context = {
         'form': form,

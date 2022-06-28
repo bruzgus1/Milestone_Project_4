@@ -6,7 +6,8 @@ from .models import Reservation
 class ReservationForm(forms.ModelForm):
     class Meta:
         model = Reservation
-        fields = ['reservation_under', 'number_of_guests', 'date_of_reservation', 'time']
+        fields = ['reservation_under', 'number_of_guests',
+                  'date_of_reservation', 'time']
         widgets = {
             'reservation_under': TextInput(attrs={
                 'type': 'text',
