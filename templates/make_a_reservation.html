@@ -6,11 +6,17 @@
         {% if user.is_authenticated %}
         <div class="col-lg-8 col-md-10 mx-auto">
             <div class="post-preview">
+                <div>
+                    <strong style="color: red;">
+                        WARNING: You Can't Make A Reservation The Day Off
+                    </strong>
+                </div>
                 <h2 class="post-title">
-                    Dates you can't make a Reservation
+                    Dates you can't make a Reservation:
                 </h2>
                 <div class="container">
                     <div class="row">
+                        {% if reservations %}
                         {% for i in reservations %}
                         <div class="col">
                             <div class="card" style="width: 18rem;">
@@ -20,6 +26,13 @@
                             </div>
                         </div>
                         {% endfor %}
+                        {% else %}
+                        <div style="margin: 1em;">
+                            <p>
+                                All Reservation Slots Are Open
+                            </p>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
                 <h2 class="post-title">

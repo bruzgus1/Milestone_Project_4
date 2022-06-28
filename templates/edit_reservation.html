@@ -6,8 +6,14 @@
         {% if user.is_authenticated %}
         <div class="col-lg-8 col-md-10 mx-auto">
             <div class="post-preview">
+                <div>
+                    <strong style="color: red;">
+                        WARNING: You Can't Edit A Reservation The Day Off, At That Point You Can Only Reschedule The
+                        Date
+                    </strong>
+                </div>
                 <h2 class="post-title">
-                    Dates you can't make a Reservation
+                    Dates you can't make a Reservation:
                 </h2>
                 <div class="container">
                     <div class="row">

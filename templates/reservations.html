@@ -6,11 +6,18 @@
         {% if user.is_authenticated %}
         <div class="col-lg-8 col-md-10 mx-auto">
             <div class="post-preview">
+                <div>
+                    <strong style="color: red;">
+                        WARNING: You Can't Edit A Reservation The Day Off, At That Point You Can Only Reschedule The
+                        Date
+                    </strong>
+                </div>
                 <h2 class="post-title">
-                    Your Reservations
+                    Your Reservations:
                 </h2>
                 <div class="container">
                     <div class="row">
+                        {% if reservations %}
                         {% for i in reservations %}
                         {% if user == i.created_by %}
                         <div class="col">
@@ -27,6 +34,7 @@
                         </div>
                         {% endif %}
                         {% endfor %}
+                        {% endif %}
                     </div>
                 </div>
             </div>
