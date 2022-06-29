@@ -26,9 +26,7 @@ def make_reservation(request):
             messages.success(request, "Your Reservation Was Submitted")
             return redirect('reservations')
         else:
-            messages.error(request, "Your Reservation Was Not Submitted,",
-                                    "Double Check All The Fields And Try Again"
-                           )
+            messages.error(request, "Your Reservation Was Not Submitted")
     else:
         # Get the currently logged-in User.
         user = get_user(request)
@@ -50,9 +48,7 @@ def edit_reservation(request, i_id):
             messages.success(request, "Your Reservation Was Updated")
             return redirect('reservations')
         else:
-            messages.error(request, "Your Reservation Was Not Updated,",
-                                    "Double Check All The Fields And Try Again"
-                           )
+            messages.error(request, "Your Reservation Was Not Updated")
     form = ReservationForm(instance=reservation)
     context = {
         'form': form,
