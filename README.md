@@ -54,7 +54,8 @@ was a bit different
 
 1. Automatically delete reservations that already happened so the page admin doesn't have to do it manually
 2. Display a div with some text when there are no reservations so the page looks more clean (ran out of time to implement it)
-3. instead of username to make reservations, add First Name/Last Name input fields and the validation needed to make them work
+3. Instead of username to make reservations, add First Name/Last Name input fields and the validation needed to make them work
+4. In admin panel sort the reservations by date not by username
 
 
 ## Bugs
