@@ -1,6 +1,6 @@
 # Eatery Restaurant Website
 
-[View the live project here.]()
+[View the live project here.](https://snack1102.herokuapp.com/)
 
 This websites purpose is to showcase our menu to those wondering if they should eat at your establishment and if they wish to create a reservation so they don't have to wait for a table to free up and could be seated as soon as they arrive
 
@@ -89,7 +89,7 @@ No Bugs were found, everything works as intended
 
 ## Validation Testing
 
-- PEP8 - no errors besides settings.py file line to long errors.
+- PEP8 - No Python validation errors were found.
 - W3C - HTML validation no errors were found.
 - W3C - CSS validation no errors were found.
 
