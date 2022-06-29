@@ -56,6 +56,7 @@ was a bit different
 2. Display a div with some text when there are no reservations so the page looks more clean (ran out of time to implement it)
 3. Instead of username to make reservations, add First Name/Last Name input fields and the validation needed to make them work
 4. In admin panel sort the reservations by date not by username
+5. Ask the user if He/She really wants to delete a reservation
 
 
 ## Bugs
